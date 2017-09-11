@@ -1,0 +1,9 @@
+<form {{action "createTag" tagName on="submit"}}>
+
+  <div class="form-group">
+    <label for="tag-name">Tag Name</label>
+    {{input value=tagName id="tag-name" class="form-control"}}
+  </div>
+
+  {{input type="submit" value="Submit" class="btn btn-primary"}}
+</form>

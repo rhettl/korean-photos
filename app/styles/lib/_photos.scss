@@ -1,0 +1,27 @@
+#photo {
+
+  ul.thumbnails {
+    list-style   : none;
+    padding-left : 0;
+
+    li {
+      width   : 100px;
+      margin  : 7px;
+      display : inline-block;
+    }
+  }
+
+  .right {
+    & > div {
+      margin-bottom : 15px;
+    }
+
+    .label {
+      display : inline-block;
+    }
+  }
+  .left {
+
+  }
+
+}

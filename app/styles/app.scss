@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css?family=Candal:100,200,300,400,500,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900");
+
+$bg_color_main : #fff5ed;
+$txt_color_main : #3a2f26;
+$txt_color_hover : #000;
+
+$col-right-width : 35%;
+$col-main-width : 100% - $col-right-width - 1%;
+
+$base-font-size : 20px;
+$base-font-family : 'Catamaran', Arial, serif;
+
+@import "bootstrap";
+@import "lib/power-select";
+
+@import "lib/toggle-switch";
+@import "lib/photos";
+@import "lib/faqs";
+
+* {
+  //border: 1px solid $txt_color_main;
+}
+
+html {
+  color     : $txt_color_main;
+  font-size : $base-font-size;
+}
+
+body {
+  background-color : $bg_color_main;
+  padding-top      : 20px;
+  font-size        : 1rem;
+  font-family      : $base-font-family;
+}
+
+hr {
+  border-top-color : $txt_color_main;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family : 'Candal', Arial, serif;
+  text-align  : center;
+  font-weight : 400;
+
+  @media (min-width : $screen-sm-min) {
+    text-align : left;
+  }
+}
+
+h1 {
+  font-size : 2.15rem;
+}
+
+h2 {
+  font-size : 1.9rem;
+}
+
+p {
+  font-size : 1rem;
+
+  a {
+    //font-weight: bold;
+    text-decoration : underline;
+
+    &:hover {
+      color           : $txt_color_hover;
+      font-weight     : bold;
+      text-decoration : underline;
+    }
+  }
+}
+
+a {
+  color : $txt_color_main;
+
+  &:hover {
+    color           : $txt_color_hover;
+    text-decoration : none;
+  }
+}
+
+nav {
+  display : block;
+  //margin  : 30px 10px 20px 10px;
+  margin  : 30px 0;
+
+  @media (min-width : $screen-sm-min) {
+    border-bottom : 1px solid $txt_color_main;
+    //margin-right  : 30px;
+  }
+
+  ul {
+    list-style : none;
+    padding    : 4px;
+    text-align : center;
+
+    @media (min-width : $screen-sm-min) {
+      text-align : right;
+    }
+
+    li {
+
+      @media (min-width : $screen-sm-min) {
+        display : inline-block;
+        border  : 0;
+      }
+
+      a {
+        color            : $bg_color_main;
+        background-color : $txt_color_main;
+        border-radius    : $border-radius-base;
+        padding          : 7px 14px;
+        border           : 1px solid $txt_color_main;
+        margin           : 7px 0;
+        display          : block;
+
+        @media (min-width : $screen-sm-min) {
+          display          : inline-block;
+          background-color : transparent;
+          padding          : 4px 5px;
+          border           : 1px solid transparent;
+          color            : $txt_color_main
+        }
+        @media (min-width : $screen-md-min) {
+          padding : 4px 14px;
+        }
+
+        &:hover {
+          color            : $bg_color_main;
+          background-color : $txt_color_hover;
+          text-decoration  : none;
+
+          @media (min-width : $screen-sm-min) {
+            color            : $txt_color_hover;
+            background-color : transparent;
+            border           : 1px solid $txt_color_main;
+          }
+        }
+      }
+    }
+  }
+}
+
+form {
+  button.btn.btn-primary {
+    background  : $txt_color_main none;
+    color       : $bg_color_main;
+    font-family : $base-font-family;
+    border      : 0;
+
+    &:hover {
+      background-color : $txt_color_hover;
+    }
+  }
+}
+
+.sm-pull-left {
+  @media (min-width : $screen-sm-min) {
+    float      : left;
+    text-align : left;
+    display    : block;
+    margin     : 7px;
+  }
+}
+
+.images {
+  .image {
+    height        : 160px;
+    margin-bottom : 15px;
+  }
+}
+
+footer {
+  margin-bottom : 20px;
+
+  .sm-text-left, .sm-text-right {
+    text-align : center;
+  }
+
+  @media (min-width : $screen-sm-min) {
+    .sm-text-left {
+      text-align : left;
+    }
+    .sm-text-right {
+      text-align : right;
+    }
+  }
+}

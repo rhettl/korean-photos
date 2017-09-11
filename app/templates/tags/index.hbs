@@ -1,0 +1,5 @@
+<div class="list-group">
+  {{#each model as |tag|}}
+    {{#link-to 'tags.tag' tag class="list-group-item"}}{{tag.name}}{{/link-to}}
+  {{/each}}
+</div>

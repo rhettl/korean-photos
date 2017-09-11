@@ -1,0 +1,36 @@
+section#faqs {
+  padding : 4px;
+
+  .faq-list {
+    padding-left : 0;
+    list-style: none;
+
+    .faq-list-item {
+
+      .response {
+        text-indent: 25px;
+      }
+    }
+  }
+
+
+  img {
+    margin-bottom : 12px;
+
+
+    @media screen and (min-width: $screen-sm-min) {
+      max-width : 24%;
+      margin : 5px 15px;
+
+      &:nth-child(odd) {
+        float : left;
+        margin-left : 0;
+      }
+      &:nth-child(even) {
+        float : right;
+        margin-right : 0;
+      }
+    }
+  }
+
+}

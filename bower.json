@@ -1,0 +1,8 @@
+{
+  "name": "korean-photos",
+  "dependencies": {
+    "dexie": "1.5.1",
+    "chosen": "1.6.2",
+    "lodash": "^4.17.4"
+  }
+}

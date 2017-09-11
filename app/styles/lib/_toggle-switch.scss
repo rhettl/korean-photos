@@ -1,0 +1,58 @@
+//colors
+$color_celeste_approx: #ccc;
+$white: white;
+$color_dodger_blue_approx: #2196f3;
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 75px;
+  border-width: 0;
+  height: 38px;
+  margin-top : 3px;
+  margin-bottom : 0;
+
+  input {
+    display: none;
+  }
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color_celeste_approx;
+  transition: 0.35s;
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: 4px;
+    bottom: 4px;
+    background-color: $white;
+    transition: .4s;
+  }
+  &.round {
+    border-radius: 34px;
+
+    &:before {
+      border-radius: 50%;
+    }
+  }
+}
+input {
+  &:checked + .slider {
+    background-color: $color_dodger_blue_approx;
+
+    &:before {
+      transform: translateX(36px);
+    }
+  }
+  &:focus + .slider {
+    box-shadow: 0 0 1px $color_dodger_blue_approx;
+  }
+}

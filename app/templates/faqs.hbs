@@ -1,0 +1,21 @@
+<section id="faqs">
+
+  <h2>Questions</h2>
+  <ul class="toc-list">
+    {{#each model as |q|}}
+      <li class="toc-list-item">{{#link-to 'faqs' (scroll-to (concat '#' q.id))}}{{q.question}}{{/link-to}}</li>
+    {{/each}}
+  </ul>
+
+  <hr />
+
+  <ul class="faq-list">
+    {{#each model as |q|}}
+      <li class="faq-list-item" id="{{q.id}}">
+        <h3 class="faq-question">{{{q.question}}}</h3>
+        <div class="response">{{{q.response}}}</div>
+      </li>
+    {{/each}}
+  </ul>
+
+</section>

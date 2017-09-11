@@ -1,0 +1,10 @@
+<nav>
+  <ul>
+    <li>{{#link-to 'home'}}Norman Stromer{{/link-to}}</li>
+    <li>{{#link-to 'gallery'}}Gallery{{/link-to}}</li>
+    <li>{{#link-to 'faqs'}}FAQs{{/link-to}}</li>
+    {{#if isDev}}
+      <li><a href="#" {{action 'save'}}>Save</a></li>
+    {{/if}}
+  </ul>
+</nav>

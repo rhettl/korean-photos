@@ -1,0 +1,248 @@
+<section id="photo">
+
+  {{#with model as |photo|}}
+    <div class="row">
+      <div class="col-sm-6 left">
+        <div class="row">
+          <div class="col-xs-12">
+            {{#light-box
+              href=photo.front
+              data-lightbox='Images'
+              data-title=photo.title
+              inlineImage=false}}
+              {{img photo.front class='center-block'}}
+            {{/light-box}}
+          </div>
+          <div class="col-xs-12">
+            <ul class="thumbnails">
+              {{#with photo as |p|}}
+                <li>
+                  {{#light-box
+                    href=p.front
+                    data-lightbox='Images'
+                    data-title=p.title
+                    inlineImage=false}}
+                    {{img p.frontThumb class='img-thumbnail'}}
+                  {{/light-box}}
+                </li>
+                <li>
+                  {{#light-box
+                    href=p.back
+                    data-lightbox='Images'
+                    data-title=p.title
+                    inlineImage=false}}
+                    {{img p.backThumb class='img-thumbnail'}}
+                  {{/light-box}}
+                </li>
+              {{/with}}
+              {{#each photo.duplicates as |p|}}
+                <li>
+                  {{#light-box
+                    href=p.front
+                    data-lightbox='Images'
+                    data-title=p.title
+                    inlineImage=false}}
+                    {{img p.frontThumb class='img-thumbnail'}}
+                  {{/light-box}}
+                </li>
+                <li>
+                  {{#light-box
+                    href=p.back
+                    data-lightbox='Images'
+                    data-title=p.title
+                    inlineImage=false}}
+                    {{img p.backThumb class='img-thumbnail'}}
+                  {{/light-box}}
+                </li>
+              {{/each}}
+              {{#each photo.related as |p|}}
+                <li>
+                  {{#light-box
+                    href=p.front
+                    data-lightbox='Images'
+                    data-title=p.title
+                    inlineImage=false}}
+                    {{img p.frontThumb class='img-thumbnail'}}
+                  {{/light-box}}
+                </li>
+                <li>
+                  {{#light-box
+                    href=p.back
+                    data-lightbox='Images'
+                    data-title=p.title
+                    inlineImage=false}}
+                    {{img p.backThumb class='img-thumbnail'}}
+                  {{/light-box}}
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 right">
+        <div class="row">
+          <div class="col-xs-4">Title</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              {{input value=photo.title change=(action 'savePhoto') class='form-control'}}
+            {{else}}
+              {{photo.title}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">Desc</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              {{input value=photo.desc change=(action 'savePhoto') class='form-control'}}
+            {{else}}
+              {{photo.desc}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">Back Text</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              {{input value=photo.backText change=(action 'savePhoto') class='form-control'}}
+            {{else}}
+              {{photo.backText}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">Notes</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              {{textarea value=photo.notes change=(action 'savePhoto') class='form-control'}}
+            {{else}}
+              {{photo.notes}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">Tags:</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              {{#power-select-multiple
+                options=tags
+                selected=model.tags
+                onchange=(action 'updateTags')
+              as |tag|
+              }}
+                {{tag.name}}
+              {{/power-select-multiple}}
+            {{else}}
+              {{#each photo.tags as |tag|}}
+                {{#link-to 'tags.tag' tag class="label label-info"}}{{tag.name}}{{/link-to}}
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">People:</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              {{#power-select-multiple
+                options=people
+                selected=model.people
+                onchange=(action 'updatePeople')
+              as |person|
+              }}
+                {{person.name}}
+              {{/power-select-multiple}}
+            {{else}}
+              {{#each photo.people as |person|}}
+                {{#link-to 'people.person' tag class="label label-info"}}{{person.name}}{{/link-to}}
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">Main Image</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              <label class="switch form-control">
+                {{input type="checkbox" checked=photo.isMain change=(action 'toggleMain')}}
+                <div class="slider round"></div>
+              </label>
+            {{else}}
+              {{#if photo.isMain}}
+                This is main
+              {{else}}
+                Not main (add link here)
+              {{/if}}
+            {{/if}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4">Duplicates:</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              {{#power-select-multiple
+                options=photos
+                selected=photo.duplicates
+                onchange=(action 'updateDuplicates')
+              as |dup|
+              }}
+                {{dup.id}} {{img dup.thumb}}
+              {{/power-select-multiple}}
+            {{else}}
+
+              <ul class="thumbnails">
+                {{#each photo.duplicates as |dup|}}
+                  {{#link-to 'gallery.photo' dup}}
+                    <li>{{img dup.thumb class='img-thumbnail'}}</li>
+                  {{/link-to}}
+                {{else}}
+                  <li class="no-result">No duplicate photos</li>
+                {{/each}}
+              </ul>
+
+            {{/if}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4">Related:</div>
+          <div class="col-xs-8">
+            {{#if edit}}
+              {{#power-select-multiple
+                options=mainPhotos
+                selected=photo.related
+                onchange=(action 'updateRelated')
+              as |rel|
+              }}
+                {{rel.id}} {{img rel.thumb}}
+              {{/power-select-multiple}}
+            {{else}}
+
+              <ul class="thumbnails">
+                {{#each photo.related as |rel|}}
+                  {{#link-to 'gallery.photo' rel}}
+                    <li>{{img rel.thumb class='img-thumbnail'}}</li>
+                  {{/link-to}}
+                {{else}}
+                  <li class="no-result">No related photos</li>
+                {{/each}}
+              </ul>
+
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/with}}
+</section>
+
+{{#if isDev}}
+  {{#if edit}}
+    {{#link-to 'gallery.photo' model (query-params edit=false)}}Stop Edit{{/link-to}}
+  {{else}}
+    {{#link-to 'gallery.photo' model (query-params edit=true)}}Edit{{/link-to}}
+  {{/if}}
+{{/if}}
+
+
