@@ -28,16 +28,27 @@ export default Ember.Route.extend({
         response: '<p>I don\'t know most of the people in the photos. only some are named and only a few others have we '
                   + 'been able to identify beyond reasonable doubt. I would love to identify all the people in these photos.</p>'
                   + '<p>Please email me <a href="mailto:rhett@rhettl.com">rhett@rhettl.com</a> or post a new issue '
-                  + '<a href="https://github.com/rhettl/korean-photos/issues/new">here</a></p>'
+                  + '<a href="https://github.com/rhettl/korean-photos/issues/new">here.</a> Please remember to include '
+                  + 'the URL or photo ID with a description of which person you are identifying. Any additional information '
+                  + 'about the photo, the people, or anything else is always appreciated.</p>'
       },
-      // {
-      //   id: 'identify-someone',
-      //   question: 'How can I identify someone in a photograph??',
-      //   response: '<p>I don\'t know most of the people in the photos. only some are named and only a few others have we '
-      //             + 'been able to identify beyond reasonable doubt. I would love to identify all the people in these photos.</p>'
-      //             + '<p>Please email me <a href="mailto:rhett@rhettl.com">rhett@rhettl.com</a> or post a new issue '
-      //             + '<a href="https://github.com/rhettl/korean-photos/issues/new">here</a></p>'
-      // },
+      {
+        id: 'how-make-site',
+        question: 'How did you make this site (technologies)?',
+        response: '<p>I made this site partially as a way to learn <a href="https://www.emberjs.com/">Ember.js</a>. For '
+                  + 'more information on the technologies used, please see the README.md on the sites '
+                  + '<a href="https://github.com/rhettl/korean-photos">public repo.</a></p>'
+      },
+      {
+        id: 'wrong-info',
+        question: 'You got a lot of information wrong.',
+        response: '<p>Well, 1) that\'s not a question and 2) yes I am positive I did. I\'m sorry.</p>'
+                  + '<p>I have never been part of the military. There is a lot of information I am missing to adequately '
+                  + 'describe these photos.</p>'
+                  + '<p>If you see evidence of something I have missed, or know better how things were at this time, or '
+                  + 'WERE THERE!!!! I would <strong>love</strong> to hear from you. Please see the question '
+                  + '"How may I identify someone in a photograph?"</p>'
+      },
     ]
   }
 });

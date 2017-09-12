@@ -46,40 +46,38 @@ let controller = Ember.Controller.extend({
     }
   },
 
-  isDev: ENV.environment === 'development',
+  isDev:       ENV.environment === 'development',
+  queryParams: ['edit'],
+  _edit:       false,
+  edit:        Ember.computed({
+    get () {
+      return this.get('isDev') && this.get('_edit')
+    },
+    set (_, val) {
+      val = this.get('isDev') && !!val;
+      this.set('_edit', val);
+      return val;
+    }
+  }),
 
-  store:      Ember.inject.service(),
-  tags:       Ember.computed(function () {
+  store:         Ember.inject.service(),
+  _tags:          Ember.computed(function () {
     return this.get('store').findAll('tag');
   }),
-  photos:     Ember.computed(function () {
-    // const id = this.get('model.id');
-    return this.get('store')
-      .findAll('photo')
-      // .then(data => {
-      //   data.set('content', data.content.filter(p => p.id !== id))
-      //   return data;
-      // })
-      ;
+  tags:        Ember.computed.sort('_tags', (a, b) => (a.get('name') > b.get('name') ? +1 : (a.get('name') < b.get('name') ? -1 : 0))),
+  _photos:       Ember.computed(function () {
+    return this.get('store').findAll('photo');
   }),
-  mainPhotos: Ember.computed(function () {
-    return this.get('store')
-      .findAll('photo')
-      // .then(data => {
-      //   data.set('content', data.content.filter(p => p.isMain))
-      //   return data;
-      // })
-      ;
-  }),
-  people:     Ember.computed(function () {
+  photos:        Ember.computed.sort('_photos', (a, b) => Number(a.id) - Number(b.id)),
+  mainPhotos:    Ember.computed.filterBy('photos', 'isMain'),
+  notMainPhotos: Ember.computed.filterBy('photos', 'isMain', false),
+  people:        Ember.computed(function () {
     return this.get('store').findAll('person');
   }),
 
 });
 
 if (ENV.environment === 'development') {
-  controller.queryParams = ['edit'];
-  controller.edit = false;
 }
 
 export default controller;

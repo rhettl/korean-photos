@@ -1,1 +1,17 @@
-{{outlet}}
+<section id="person">
+
+  <h3>
+    <small>Person:</small>
+    {{model.name}}
+  </h3>
+
+  <p>{{model.desc}}</p>
+
+  <hr />
+
+  <p>Below is a list of photos with this person:</p>
+
+  {{img-gallery photos=model.photos}}
+
+
+</section>

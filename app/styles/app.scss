@@ -14,9 +14,23 @@ $base-font-family : 'Catamaran', Arial, serif;
 @import "bootstrap";
 @import "lib/power-select";
 
+// Default variables that can be overrided
+$flexbin-row-height: 120px !default;
+$flexbin-space: 5px !default;
+
+$flexbin-tablet-max: $screen-sm-max !default;
+$flexbin-row-height-tablet: 100px !default;
+$flexbin-space-tablet: $flexbin-space !default;
+
+$flexbin-phone-max: $screen-xs-max !default;
+$flexbin-row-height-phone: 80px !default;
+$flexbin-space-phone: $flexbin-space !default;
+
+
 @import "lib/toggle-switch";
 @import "lib/photos";
 @import "lib/faqs";
+@import "lib/flexbin";
 
 * {
   //border: 1px solid $txt_color_main;
@@ -164,12 +178,27 @@ form {
   }
 }
 
-.images {
-  .image {
-    height        : 160px;
-    margin-bottom : 15px;
-  }
+.img-gallery {
 }
+
+//.images {
+//  .image {
+//    height        : 160px;
+//    margin-bottom : 15px;
+//
+//    .lazy-image-container {
+//      max-height: 100%;
+//    }
+//
+//    img {
+//      @extend .center-block;
+//      @extend .img-responsive;
+//      @extend .img-thumbnail;
+//
+//      max-height : 100%;
+//    }
+//  }
+//}
 
 footer {
   margin-bottom : 20px;

@@ -1,1 +1,5 @@
-{{outlet}}
+<div class="list-group">
+  {{#each peopleQuantity as |person|}}
+    {{#link-to 'people.person' person class="list-group-item"}}{{person.name}} -- {{person.photos.length}} photos{{/link-to}}
+  {{/each}}
+</div>

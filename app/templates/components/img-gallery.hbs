@@ -1,0 +1,9 @@
+<div class="img-gallery">
+  <div class="flexbin flexbin-margin">
+    {{#each photos as |photo|}}
+      {{#link-to 'gallery.photo' photo (query-params edit=edit)}}
+        <img src="{{photo.thumb}}" alt="{{photo.title}}">
+      {{/link-to}}
+    {{/each}}
+  </div>
+</div>

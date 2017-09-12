@@ -1,11 +1,13 @@
 <section>
 
-  <div class="row images">
-    {{#each model as |photo|}}
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 image">
-        {{#link-to 'gallery.photo' photo}}{{img photo.thumb thumbnail=1 class='center-block'}}{{/link-to}}
-      </div>
-    {{/each}}
-  </div>
+  {{img-gallery photos=mainPhotos edit=edit}}
+
+</section>
+
+
+<h3>not main</h3>
+<section>
+
+  {{img-gallery photos=notMainPhotos edit=edit}}
 
 </section>

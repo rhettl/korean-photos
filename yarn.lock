@@ -2316,7 +2316,7 @@ ember-cli-app-version@^3.0.0:
     ember-cli-babel "^6.8.0"
     git-repo-version "0.4.1"
 
-ember-cli-babel@^5.1.3, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
+ember-cli-babel@^5.0.0, ember-cli-babel@^5.1.3, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.4.tgz#5ce4f46b08ed6f6d21e878619fb689719d6e8e13"
   dependencies:
@@ -2818,6 +2818,14 @@ ember-get-config@0.2.1:
     broccoli-file-creator "^1.1.1"
     ember-cli-babel "^5.1.6"
 
+ember-getowner-polyfill@^1.1.1:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.2.5.tgz#ceff8a09897d0d7e05c821bb71666a95eb26dc92"
+  dependencies:
+    ember-cli-babel "^5.1.6"
+    ember-cli-version-checker "^1.2.0"
+    ember-factory-for-polyfill "^1.1.0"
+
 ember-getowner-polyfill@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-2.0.1.tgz#9bfe2b4d527ed174e76fef2c8f30937d77cb66fb"
@@ -2825,17 +2833,38 @@ ember-getowner-polyfill@^2.0.0:
     ember-cli-version-checker "^1.2.0"
     ember-factory-for-polyfill "^1.1.0"
 
+ember-in-viewport@^2.0.4:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ember-in-viewport/-/ember-in-viewport-2.1.1.tgz#6306c2dd62045211bd57b664bd90c453d13644c0"
+  dependencies:
+    ember-cli-babel "^5.1.6"
+    ember-getowner-polyfill "^1.1.1"
+
 ember-inflector@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-2.0.1.tgz#e9ac469ffa17992a43276bb1c9b8d87992b10d37"
   dependencies:
     ember-cli-babel "^6.0.0"
 
+ember-lazy-image@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/ember-lazy-image/-/ember-lazy-image-0.0.15.tgz#0eff997c255bb98947299a24704c85e793d8fa9c"
+  dependencies:
+    ember-cli-babel "^5.0.0"
+    ember-in-viewport "^2.0.4"
+    ember-local-storage "0.0.5"
+
 ember-load-initializers@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-load-initializers/-/ember-load-initializers-1.0.0.tgz#4919eaf06f6dfeca7e134633d8c05a6c9921e6e7"
   dependencies:
     ember-cli-babel "^6.0.0-beta.7"
+
+ember-local-storage@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/ember-local-storage/-/ember-local-storage-0.0.5.tgz#addb1bc889ec64d75e645b7edb549ebbb82632d4"
+  dependencies:
+    ember-cli-babel "^5.0.0"
 
 ember-lodash@^4.17.3:
   version "4.17.5"

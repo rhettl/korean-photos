@@ -18,15 +18,6 @@
               {{#with photo as |p|}}
                 <li>
                   {{#light-box
-                    href=p.front
-                    data-lightbox='Images'
-                    data-title=p.title
-                    inlineImage=false}}
-                    {{img p.frontThumb class='img-thumbnail'}}
-                  {{/light-box}}
-                </li>
-                <li>
-                  {{#light-box
                     href=p.back
                     data-lightbox='Images'
                     data-title=p.title
@@ -182,7 +173,7 @@
           <div class="col-xs-8">
             {{#if edit}}
               {{#power-select-multiple
-                options=photos
+                options=notMainPhotos
                 selected=photo.duplicates
                 onchange=(action 'updateDuplicates')
               as |dup|

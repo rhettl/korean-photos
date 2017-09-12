@@ -1,13 +1,12 @@
-<div class="panel panel-default">
-  <div class="panel-heading"><small>Tag: </small>{{model.name}}</div>
-  <div class="panel-body">
-    <p>Below is a list og photos with this tag:</p>
-  </div>
-  <div class="list-group">
-    {{#each model.photos as |photo|}}
-      {{#link-to 'gallery.photo' photo class="list-group-item"}}{{img photo.thumb}}{{/link-to}}
-    {{else}}
-      <div class="list-group-item">There are no images with this tag at this time</div>
-    {{/each}}
-  </div>
-</div>
+<section id="tag">
+
+  <h3>
+    <small>Tag:</small>
+    {{model.name}}
+  </h3>
+  <p>Below is a list of photos with this tag:</p>
+
+  {{img-gallery photos=model.photos}}
+
+
+</section>
